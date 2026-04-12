@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { Linkedin, Github } from 'lucide-react';
+import { Linkedin, Github, Download } from 'lucide-react';
 import { developerInfo } from '@/data/developer';
 import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
 import { SEOHead } from '@/components/seo/SEOHead';
 
 export default function About() {
@@ -33,6 +34,12 @@ export default function About() {
                   <img src={developerInfo.portraitImage} alt={developerInfo.name} className="absolute inset-0 w-full h-full object-cover object-top" />
                 </div>
                 <div className="flex items-center gap-4">
+                  <a href="/Rohith_Ram_H_Resume.pdf" download className="inline-flex">
+                    <Button variant="outline" size="sm" className="gap-2 rounded-sm">
+                      <Download className="size-4" />
+                      Download Resume
+                    </Button>
+                  </a>
                   {developerInfo.socialLinks.github && (
                     <a href={developerInfo.socialLinks.github} target="_blank" rel="noopener noreferrer" className="p-3 border border-border rounded-sm hover:bg-accent transition-colors" aria-label="GitHub">
                       <Github className="size-5" />
