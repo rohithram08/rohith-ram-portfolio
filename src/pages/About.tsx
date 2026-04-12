@@ -34,7 +34,7 @@ export default function About() {
                   <img src={developerInfo.portraitImage} alt={developerInfo.name} className="absolute inset-0 w-full h-full object-cover object-top" />
                 </div>
                 <div className="flex items-center gap-4">
-                  <a href="/Rohith_Ram_H_Resume.pdf" download className="inline-flex">
+                  <a href="public/Rohith_Ram_H_Resume.pdf" download className="inline-flex">
                     <Button variant="outline" size="sm" className="gap-2 rounded-sm">
                       <Download className="size-4" />
                       Download Resume
