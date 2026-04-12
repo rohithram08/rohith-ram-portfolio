@@ -29,8 +29,8 @@ export default function About() {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
               <motion.div className="space-y-6" initial={{ opacity: 0.8, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4 }}>
-                <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted">
-                  <img src={developerInfo.portraitImage} alt={developerInfo.name} className="absolute inset-0 w-full h-full object-cover" />
+                <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-muted max-w-[280px] mx-auto">
+                  <img src={developerInfo.portraitImage} alt={developerInfo.name} className="absolute inset-0 w-full h-full object-cover object-top" />
                 </div>
                 <div className="flex items-center gap-4">
                   {developerInfo.socialLinks.github && (
