@@ -7,7 +7,7 @@ export const projects: Project[] = [
     category: 'ai',
     year: '2025',
     slug: 'max-voice-assistant',
-    coverImage: 'https://images.unsplash.com/photo-1589254065878-42c014d82834?auto=format&fit=crop&w=1080&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1080&q=80',
     description: 'Python-based voice assistant with 10+ integrated features including speech recognition, text-to-speech, web search, and system automation. Achieved 85% command recognition accuracy in testing.',
     techStack: ['Python', 'SpeechRecognition', 'pyttsx3', 'APIs'],
     githubUrl: 'https://github.com/rohithram08/Max-voice-assistant-',
@@ -17,9 +17,9 @@ export const projects: Project[] = [
       'Natural language processing for intuitive interaction',
     ],
     images: [
-      { id: '1-1', src: 'https://images.unsplash.com/photo-1589254065878-42c014d82834?auto=format&fit=crop&w=1080&q=80', alt: 'Voice assistant interface' },
-      { id: '1-2', src: 'https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1080&q=80', alt: 'AI speech recognition visualization' },
-      { id: '1-3', src: 'https://images.unsplash.com/photo-1655720828018-edd71de8dc5a?auto=format&fit=crop&w=1080&q=80', alt: 'Python code and terminal' },
+      { id: '1-1', src: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1080&q=80', alt: 'Voice assistant interface' },
+      { id: '1-2', src: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1080&q=80', alt: 'AI speech recognition visualization' },
+      { id: '1-3', src: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1080&q=80', alt: 'Python code and terminal' },
     ],
   },
   {
@@ -28,7 +28,7 @@ export const projects: Project[] = [
     category: 'ai',
     year: '2025',
     slug: 'pdf-chatbot-rag',
-    coverImage: 'https://images.unsplash.com/photo-1677442135136-760c813028c4?auto=format&fit=crop&w=1080&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1080&q=80',
     description: 'An intelligent chatbot that leverages Retrieval-Augmented Generation (RAG) to answer questions from uploaded PDF documents. Built with Streamlit for an interactive user experience.',
     techStack: ['Python', 'LangChain', 'Streamlit', 'RAG', 'LLM'],
     liveUrl: 'https://rag-pdf-chatbot-007.streamlit.app/',
@@ -38,9 +38,9 @@ export const projects: Project[] = [
       'Interactive Streamlit-based web interface',
     ],
     images: [
-      { id: '2-1', src: 'https://images.unsplash.com/photo-1677442135136-760c813028c4?auto=format&fit=crop&w=1080&q=80', alt: 'AI chatbot conversation' },
-      { id: '2-2', src: 'https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?auto=format&fit=crop&w=1080&q=80', alt: 'PDF document processing' },
-      { id: '2-3', src: 'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?auto=format&fit=crop&w=1080&q=80', alt: 'Streamlit web application' },
+      { id: '2-1', src: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1080&q=80', alt: 'AI chatbot conversation' },
+      { id: '2-2', src: 'https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?auto=format&fit=crop&w=1080&q=80', alt: 'PDF document processing' },
+      { id: '2-3', src: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1080&q=80', alt: 'Streamlit web application' },
     ],
   },
   {
