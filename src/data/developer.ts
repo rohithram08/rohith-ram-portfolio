@@ -59,7 +59,7 @@ JLPT N4 certified and studying for N3, combining technical expertise with a glob
   availability: 'Open to opportunities in Data Science, Analytics & Software Development',
   socialLinks: {
     github: 'https://github.com/rohithram08',
-    linkedin: 'https://linkedin.com/in/rohithram-haribabu',
+    linkedin: 'https://www.linkedin.com/in/rohithram-haribabu',
   },
   portraitImage,
 };
