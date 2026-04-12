@@ -35,8 +35,8 @@ const contactFormSchema = z.object({
     .trim()
     .email({ message: 'Please enter a valid email address' })
     .max(255, { message: 'Email must be less than 255 characters' }),
-  projectType: z.enum(['editorial', 'commercial', 'personal'], {
-    required_error: 'Please select a project type',
+  projectType: z.enum(['collaboration', 'freelance', 'fulltime', 'other'], {
+    required_error: 'Please select an inquiry type',
   }),
   message: z
     .string()
@@ -182,23 +182,26 @@ export function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-sm font-light tracking-wide">
-                Project Type
+                Inquiry Type
               </FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger className="font-light">
-                    <SelectValue placeholder="Select project type" />
+                    <SelectValue placeholder="Select inquiry type" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent className="bg-popover z-50">
-                  <SelectItem value="editorial" className="font-light">
-                    Editorial
+                  <SelectItem value="collaboration" className="font-light">
+                    Collaboration
                   </SelectItem>
-                  <SelectItem value="commercial" className="font-light">
-                    Commercial
+                  <SelectItem value="freelance" className="font-light">
+                    Freelance Project
                   </SelectItem>
-                  <SelectItem value="personal" className="font-light">
-                    Personal
+                  <SelectItem value="fulltime" className="font-light">
+                    Full-time Opportunity
+                  </SelectItem>
+                  <SelectItem value="other" className="font-light">
+                    Other
                   </SelectItem>
                 </SelectContent>
               </Select>
