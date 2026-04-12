@@ -18,6 +18,8 @@ export const projects: Project[] = [
     ],
     images: [
       { id: '1-1', src: 'https://images.unsplash.com/photo-1589254065878-42c014d82834?auto=format&fit=crop&w=1080&q=80', alt: 'Voice assistant interface' },
+      { id: '1-2', src: 'https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1080&q=80', alt: 'AI speech recognition visualization' },
+      { id: '1-3', src: 'https://images.unsplash.com/photo-1655720828018-edd71de8dc5a?auto=format&fit=crop&w=1080&q=80', alt: 'Python code and terminal' },
     ],
   },
   {
@@ -36,7 +38,9 @@ export const projects: Project[] = [
       'Interactive Streamlit-based web interface',
     ],
     images: [
-      { id: '2-1', src: 'https://images.unsplash.com/photo-1677442135136-760c813028c4?auto=format&fit=crop&w=1080&q=80', alt: 'PDF Chatbot interface' },
+      { id: '2-1', src: 'https://images.unsplash.com/photo-1677442135136-760c813028c4?auto=format&fit=crop&w=1080&q=80', alt: 'AI chatbot conversation' },
+      { id: '2-2', src: 'https://images.unsplash.com/photo-1456406644174-8ddd4cd52a06?auto=format&fit=crop&w=1080&q=80', alt: 'PDF document processing' },
+      { id: '2-3', src: 'https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?auto=format&fit=crop&w=1080&q=80', alt: 'Streamlit web application' },
     ],
   },
   {
@@ -56,6 +60,8 @@ export const projects: Project[] = [
     ],
     images: [
       { id: '3-1', src: 'https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=1080&q=80', alt: 'Computer vision demo' },
+      { id: '3-2', src: 'https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?auto=format&fit=crop&w=1080&q=80', alt: 'OpenCV color detection' },
+      { id: '3-3', src: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1080&q=80', alt: 'Real-time video processing' },
     ],
   },
   {
@@ -73,43 +79,9 @@ export const projects: Project[] = [
       'Currently under active development',
     ],
     images: [
-      { id: '4-1', src: 'https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=1080&q=80', alt: 'Nihongo learning platform' },
-    ],
-  },
-  {
-    id: '5',
-    title: 'Cloud Contact Center',
-    category: 'cloud',
-    year: '2025',
-    slug: 'cloud-contact-center',
-    coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1080&q=80',
-    description: 'Designed and deployed a cloud-based contact center using Amazon Connect. Built custom IVR contact flows and integrated Amazon Lex for AI-driven conversational support across voice and chat channels.',
-    techStack: ['AWS', 'Amazon Connect', 'Amazon Lex', 'CloudWatch', 'Lambda'],
-    highlights: [
-      'Designed custom IVR contact flows for multi-channel support',
-      'Integrated Amazon Lex for AI-driven conversational interactions',
-      'Deployed monitoring and analytics with CloudWatch',
-    ],
-    images: [
-      { id: '5-1', src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1080&q=80', alt: 'Cloud architecture' },
-    ],
-  },
-  {
-    id: '6',
-    title: 'Data Analytics – Logistics',
-    category: 'data-analytics',
-    year: '2025',
-    slug: 'logistics-analytics',
-    coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1080&q=80',
-    description: 'Supported data analytics workflows at Ramco Cements covering logistics, warehousing, and geo-tracking. Performed data cleaning, validation, and stock monitoring using Power BI dashboards.',
-    techStack: ['Power BI', 'SQL', 'Data Cleaning', 'Analytics'],
-    highlights: [
-      'Built interactive Power BI dashboards for stock monitoring',
-      'Performed data cleaning and validation on logistics datasets',
-      'Supported geo-tracking analytics for fleet management',
-    ],
-    images: [
-      { id: '6-1', src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1080&q=80', alt: 'Data analytics dashboard' },
+      { id: '4-1', src: 'https://images.unsplash.com/photo-1528164344705-47542687000d?auto=format&fit=crop&w=1080&q=80', alt: 'Japanese calligraphy' },
+      { id: '4-2', src: 'https://images.unsplash.com/photo-1480796927426-f609979314bd?auto=format&fit=crop&w=1080&q=80', alt: 'Japan culture and learning' },
+      { id: '4-3', src: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1080&q=80', alt: 'Language learning interface' },
     ],
   },
 ];
