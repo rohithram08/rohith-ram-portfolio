@@ -44,17 +44,17 @@ export function Header() {
           <div className="flex items-center justify-between h-16">
 
             {/* Logo mark */}
-            <Link to="/" className="flex items-center gap-3 group" aria-label="Home">
-              <div className="w-8 h-8 bg-indigo-600 rounded-sm flex items-center justify-center shrink-0 group-hover:bg-indigo-500 transition-colors">
-                <span className="text-white text-xs font-mono font-bold">{initials}</span>
+            <Link to="/" className="flex items-center gap-2.5 group" aria-label="Home">
+              <div className="w-7 h-7 bg-indigo-600 rounded-sm flex items-center justify-center shrink-0 group-hover:bg-indigo-500 transition-colors">
+                <span className="text-white text-[10px] font-mono font-bold leading-none">{initials}</span>
               </div>
-              <span className="hidden sm:block text-sm font-mono tracking-wider text-muted-foreground group-hover:text-foreground transition-colors">
+              <span className="hidden sm:block text-xs font-mono tracking-widest text-muted-foreground group-hover:text-foreground transition-colors uppercase">
                 {developerInfo.name}
               </span>
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-6">
               {navLinks.map((link, index) => {
                 const isActive = location.pathname === link.path;
                 return (
@@ -67,7 +67,7 @@ export function Header() {
                     <Link
                       to={link.path}
                       className={cn(
-                        'relative text-sm font-mono tracking-wide transition-colors duration-200',
+                        'relative text-xs font-mono tracking-widest uppercase transition-colors duration-200',
                         isActive
                           ? 'text-foreground'
                           : 'text-muted-foreground hover:text-foreground'
@@ -95,7 +95,7 @@ export function Header() {
                 <ThemeToggle />
                 <Link
                   to="/contact"
-                  className="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-mono tracking-wider rounded-sm transition-colors duration-200"
+                  className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white text-[10px] font-mono tracking-widest uppercase rounded-sm transition-colors duration-200"
                 >
                   Hire Me
                 </Link>
