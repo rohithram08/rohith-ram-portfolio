@@ -2,7 +2,7 @@ import type { Project } from '@/types';
 import pathalyticsCover from '@/assets/projects/pathalytics-cover.png';
 import mextCover from '@/assets/projects/mext-tracker-cover.png';
 import PDFRagBot from '@/assets/projects/pdf-rag-chatbot-image.png';
-import InvisibilityCloak from '@/assets/projects/invisibility-cloak.png';
+import InvisibilityCloak from '@/assets/projects/invisibility_cloak.png';
 import CareerRoadmap from '@/assets/projects/career-roadmap.png';
 import NihongoPlatform from '@/assets/projects/nihongo-platform.png';
 import CareerRecomendation from '@/assets/projects/CareerRecommendationImage.png';
