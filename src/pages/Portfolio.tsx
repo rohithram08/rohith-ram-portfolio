@@ -3,8 +3,9 @@ import { projects } from '@/data/projects';
 import { PortfolioGrid } from '@/components/portfolio/PortfolioGrid';
 import { SEOHead } from '@/components/seo/SEOHead';
 import { motion } from 'framer-motion';
+import { Globe } from 'lucide-react';
 
-const categories = ['All', 'Full-Stack', 'Cloud', 'Data', 'AI/ML'];
+const categories = ['All', 'Full-Stack', 'AI/ML', 'Data'];
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -19,6 +20,8 @@ export default function Portfolio() {
               t.toLowerCase().includes(activeCategory.toLowerCase())
             )
         );
+
+  const liveCount = projects.filter((p) => p.liveUrl).length;
 
   return (
     <>
@@ -50,8 +53,16 @@ export default function Portfolio() {
                 <span className="text-indigo-500 dark:text-indigo-400">Case Studies</span>
               </h1>
               <p className="text-muted-foreground font-light max-w-xl pt-2 text-lg">
-                Full-stack, cloud, and data projects — from production deployments to research.
+                Full-stack, AI, and data projects — from production deployments to research.
               </p>
+
+              {/* Live badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-emerald-500/30 bg-emerald-500/5 rounded-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
+                <span className="text-xs font-mono text-emerald-500 dark:text-emerald-400">
+                  {liveCount} projects live in production
+                </span>
+              </div>
             </motion.div>
 
             {/* Category filters */}
