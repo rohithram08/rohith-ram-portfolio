@@ -3,6 +3,7 @@ import { Linkedin, Github, Download, GraduationCap, Briefcase, Star, Globe } fro
 import { developerInfo } from '@/data/developer';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SEOHead } from '@/components/seo/SEOHead';
+import { AnimeDev } from '@/components/AnimeDev';
 
 export default function About() {
   return (
@@ -41,27 +42,24 @@ export default function About() {
           </div>
         </section>
 
-        {/* ── Portrait + Bio ── */}
+        {/* ── Anime Character + Bio ── */}
         <section className="py-20 px-6 lg:px-16">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-[300px_1fr] gap-16 items-start">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-[380px_1fr] gap-16 items-start">
 
-            {/* Left: portrait + links */}
+            {/* Left: anime character + links */}
             <motion.div
               className="space-y-6 md:sticky md:top-24"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.6 }}
             >
-              <div className="aspect-[3/4] relative overflow-hidden rounded-sm bg-accent max-w-[260px]">
-                <img
-                  src={developerInfo.portraitImage}
-                  alt={developerInfo.name}
-                  className="absolute inset-0 w-full h-full object-cover object-top"
-                />
+              {/* Anime SVG character */}
+              <div className="w-full max-w-[340px] mx-auto">
+                <AnimeDev />
               </div>
 
               {/* Social + resume links */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 justify-center">
                 <a
                   href="/Rohith_Ram_H_Resume.pdf"
                   download
@@ -106,7 +104,7 @@ export default function About() {
                 ].map(({ label, value }) => (
                   <div key={label} className="flex justify-between text-sm border-b border-border pb-2">
                     <span className="text-muted-foreground font-mono text-xs">{label}</span>
-                    <span className="text-foreground text-xs text-right max-w-[150px]">{value}</span>
+                    <span className="text-foreground text-xs text-right max-w-[160px]">{value}</span>
                   </div>
                 ))}
               </div>
@@ -222,7 +220,7 @@ export default function About() {
                 </div>
               </ScrollReveal>
 
-              {/* Japanese / MEXT — unique differentiator */}
+              {/* Japan / Global mindset */}
               <ScrollReveal>
                 <div className="space-y-6">
                   <div className="flex items-center gap-3">
@@ -238,13 +236,10 @@ export default function About() {
                         <h3 className="font-medium text-foreground">Japanese Language & Japan Focus</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">
                           JLPT N4 certified and actively pursuing N3. Trained at Trust Tokyo Japanese Language School.
-                          Applying for the{' '}
-                          <strong className="text-indigo-500 dark:text-indigo-400">MEXT 2027 Scholarship</strong>
-                          {' '}— targeting graduate research in data engineering / AI at Japanese universities (Kyoto, Osaka).
-                          Actively seeking roles at Japanese MNCs and Japan-collaborated companies in India.
+                          Actively seeking roles at Japanese MNCs and Japan-collaborated companies.
                         </p>
                         <div className="flex flex-wrap gap-2 mt-3">
-                          {['JLPT N4', 'NAT-5Q', 'Pursuing N3', 'MEXT 2027 Applicant'].map(tag => (
+                          {['JLPT N4', 'NAT-5Q', 'Pursuing N3'].map(tag => (
                             <span key={tag} className="px-2.5 py-1 text-xs border border-indigo-500/30 text-indigo-500 dark:text-indigo-400 rounded-sm bg-indigo-500/5">
                               {tag}
                             </span>
@@ -258,25 +253,19 @@ export default function About() {
 
               {/* Contact strip */}
               <ScrollReveal>
-                <div className="pt-4 space-y-3 text-sm">
+                <div className="pt-4 space-y-3">
                   <p className="text-xs font-mono tracking-[0.15em] text-indigo-500 dark:text-indigo-400 uppercase mb-4">
                     Contact
                   </p>
                   <div className="flex gap-2 border-b border-border pb-3">
                     <span className="text-muted-foreground font-mono text-xs">Email</span>
-                    <a
-                      href={`mailto:${developerInfo.email}`}
-                      className="text-foreground hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-xs ml-auto"
-                    >
+                    <a href={`mailto:${developerInfo.email}`} className="text-foreground hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-xs ml-auto">
                       {developerInfo.email}
                     </a>
                   </div>
                   <div className="flex gap-2 border-b border-border pb-3">
                     <span className="text-muted-foreground font-mono text-xs">Phone</span>
-                    <a
-                      href={`tel:${developerInfo.phone}`}
-                      className="text-foreground hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-xs ml-auto"
-                    >
+                    <a href={`tel:${developerInfo.phone}`} className="text-foreground hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors text-xs ml-auto">
                       {developerInfo.phone}
                     </a>
                   </div>
