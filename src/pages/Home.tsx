@@ -76,11 +76,11 @@ export default function Home() {
       <div className="min-h-screen bg-background text-foreground">
 
         {/* ── Hero ── */}
-        <section className="relative lg:min-h-screen flex flex-col lg:flex-row lg:items-center overflow-hidden">
+        <section className="relative min-h-screen flex items-end lg:items-center overflow-hidden">
 
-          {/* Portrait — normal flow block on mobile, full-bleed absolute panel on desktop */}
+          {/* Portrait — full bleed background on all screens */}
           <motion.div
-            className="relative w-full h-[58vh] min-h-[360px] lg:absolute lg:inset-y-0 lg:right-0 lg:left-auto lg:h-auto lg:w-[80%] lg:min-h-0 order-1 lg:order-none"
+            className="absolute inset-0 lg:inset-y-0 lg:right-0 lg:left-auto w-full lg:w-[80%]"
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
@@ -88,26 +88,26 @@ export default function Home() {
             <img
               src={profileImg}
               alt={developerInfo.name}
-              className="w-full h-full object-cover object-[center_18%] lg:object-[35%_20%]"
+              className="w-full h-full object-cover object-[68%_18%] lg:object-[35%_20%]"
             />
-            {/* Mobile bottom fade so text doesn't hard-cut against image */}
-            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background to-transparent lg:hidden" />
+            {/* Mobile: bottom-up dark fade so text is readable over photo */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent lg:hidden" />
             {/* Desktop: left fade + bottom fade */}
             <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-background to-transparent hidden lg:block" />
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent hidden lg:block" />
           </motion.div>
 
-          {/* Ambient glow — subtle in light mode, more visible in dark */}
+          {/* Ambient glow — desktop only */}
           <div className="pointer-events-none absolute inset-0 z-0 hidden lg:block">
             <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-indigo-600/5 dark:bg-indigo-600/10 blur-[120px]" />
           </div>
 
-          {/* Text content */}
-          <div className="relative z-10 w-full px-6 lg:px-16 pt-8 lg:pt-24 pb-16 order-2 lg:order-none">
+          {/* Text content — overlaid on image, bottom-anchored on mobile */}
+          <div className="relative z-10 w-full px-6 lg:px-16 pt-24 pb-10 lg:pb-16">
             <div className="max-w-6xl mx-auto lg:max-w-none lg:pr-[55%]">
               {/* Eyebrow */}
               <motion.div
-                className="flex items-center gap-3 mb-6 lg:mb-8"
+                className="flex items-center gap-3 mb-5 lg:mb-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -121,7 +121,7 @@ export default function Home() {
 
               {/* Name */}
               <motion.h1
-                className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tight leading-none mb-6"
+                className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tight leading-none mb-5 lg:mb-6"
                 style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -136,7 +136,7 @@ export default function Home() {
 
               {/* Terminal role */}
               <motion.div
-                className="mb-8 lg:mb-10 h-8 flex items-center"
+                className="mb-6 lg:mb-10 h-8 flex items-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
@@ -146,7 +146,7 @@ export default function Home() {
 
               {/* Location + email */}
               <motion.div
-                className="flex flex-wrap gap-4 lg:gap-6 text-sm text-muted-foreground mb-10 lg:mb-12 font-mono"
+                className="flex flex-wrap gap-4 lg:gap-6 text-sm text-muted-foreground mb-8 lg:mb-12 font-mono"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
