@@ -25,6 +25,7 @@ function TerminalRole() {
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
     const current = roles[index];
+
     if (typing) {
       if (displayed.length < current.length) {
         timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 60);
@@ -51,9 +52,18 @@ function TerminalRole() {
 }
 
 const skillGroups = [
-  { label: 'Languages', items: developerInfo.skills.languages },
-  { label: 'Frameworks & Tools', items: developerInfo.skills.toolsFrameworks },
-  { label: 'Databases', items: developerInfo.skills.databases },
+  {
+    label: 'Languages',
+    items: developerInfo.skills.languages,
+  },
+  {
+    label: 'Frameworks & Tools',
+    items: developerInfo.skills.toolsFrameworks,
+  },
+  {
+    label: 'Databases',
+    items: developerInfo.skills.databases,
+  },
 ];
 
 export default function Home() {
@@ -62,147 +72,42 @@ export default function Home() {
   return (
     <>
       <SEOHead />
+
       <div className="min-h-screen bg-background text-foreground">
 
-        {/* ══════════════════════════ HERO ══════════════════════════ */}
-        <section className="relative overflow-hidden">
+        {/* ── Hero ── */}
+        <section className="relative lg:min-h-screen flex flex-col lg:flex-row lg:items-center overflow-hidden">
 
-          {/* ── MOBILE LAYOUT (stacked, no overlap) ── */}
-          <div className="lg:hidden pt-16">
+          {/* Portrait — normal flow block on mobile, full-bleed absolute panel on desktop */}
+          <motion.div
+            className="relative w-full h-[58vh] min-h-[360px] lg:absolute lg:inset-y-0 lg:right-0 lg:left-auto lg:h-auto lg:w-[80%] lg:min-h-0 order-1 lg:order-none"
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <img
+              src={profileImg}
+              alt={developerInfo.name}
+              className="w-full h-full object-cover object-[center_18%] lg:object-[35%_20%]"
+            />
+            {/* Mobile bottom fade so text doesn't hard-cut against image */}
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background to-transparent lg:hidden" />
+            {/* Desktop: left fade + bottom fade */}
+            <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-background to-transparent hidden lg:block" />
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent hidden lg:block" />
+          </motion.div>
 
-            {/* Image block */}
-            <motion.div
-              className="relative w-full overflow-hidden"
-              style={{ height: '58vh', minHeight: '360px' }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              <img
-                src={profileImg}
-                alt={developerInfo.name}
-                className="w-full h-full object-cover"
-                style={{ objectPosition: 'center 18%' }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/5 to-transparent" />
-            </motion.div>
-
-            {/* Text block */}
-            <div className="px-6 pt-8 pb-16">
-              <motion.div
-                className="flex items-center gap-3 mb-6"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-              >
-                <span className="block w-8 h-px bg-indigo-500 dark:bg-indigo-400" />
-                <span className="text-xs font-mono tracking-[0.2em] text-indigo-500 dark:text-indigo-400 uppercase">
-                  Available for hire
-                </span>
-                <span className="block w-2 h-2 rounded-full bg-indigo-500 dark:bg-indigo-400 animate-pulse" />
-              </motion.div>
-
-              <motion.h1
-                className="text-5xl sm:text-6xl font-light tracking-tight leading-none mb-5"
-                style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.25 }}
-              >
-                {developerInfo.name.split(' ').map((word, i) => (
-                  <span key={i} className={i === 1 ? 'block text-indigo-500 dark:text-indigo-400' : 'block text-foreground'}>
-                    {word}
-                  </span>
-                ))}
-              </motion.h1>
-
-              <motion.div
-                className="mb-6 h-7 flex items-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                <TerminalRole />
-              </motion.div>
-
-              <motion.div
-                className="flex flex-col gap-2.5 text-sm text-muted-foreground mb-8 font-mono"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                <span className="flex items-center gap-2">
-                  <MapPin className="size-3.5 shrink-0 text-indigo-500 dark:text-indigo-400" /> {developerInfo.location}
-                </span>
-                <span className="flex items-center gap-2">
-                  <Mail className="size-3.5 shrink-0 text-indigo-500 dark:text-indigo-400" />
-                  <a href={`mailto:${developerInfo.email}`} className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors break-all">
-                    {developerInfo.email}
-                  </a>
-                </span>
-              </motion.div>
-
-              <motion.div
-                className="flex flex-col gap-3"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-              >
-                <Link
-                  to="/portfolio"
-                  className="group inline-flex items-center justify-center gap-2 px-5 py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium tracking-wide rounded-sm transition-all duration-200"
-                >
-                  View Projects
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-                <div className="flex gap-3">
-                  <a
-                    href="/Rohith_Ram_H_Resume.pdf"
-                    download
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 border border-border hover:border-indigo-500/50 hover:bg-accent text-sm font-medium tracking-wide rounded-sm transition-all duration-200"
-                  >
-                    Resume
-                  </a>
-                  <Link
-                    to="/contact"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 border border-border hover:border-indigo-500/50 hover:bg-accent text-sm font-medium tracking-wide rounded-sm transition-all duration-200"
-                  >
-                    Contact
-                  </Link>
-                </div>
-              </motion.div>
-            </div>
+          {/* Ambient glow — subtle in light mode, more visible in dark */}
+          <div className="pointer-events-none absolute inset-0 z-0 hidden lg:block">
+            <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-indigo-600/5 dark:bg-indigo-600/10 blur-[120px]" />
           </div>
 
-          {/* ── DESKTOP LAYOUT (full-bleed split) ── */}
-          <div className="hidden lg:block relative min-h-screen">
-
-            {/* Right image panel */}
-            <motion.div
-              className="absolute inset-y-0 right-0 w-[55%]"
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-            >
-              <img
-                src={profileImg}
-                alt={developerInfo.name}
-                className="w-full h-full object-cover"
-                style={{ objectPosition: '35% 15%' }}
-              />
-              <div className="absolute inset-y-0 left-0 w-[55%] bg-gradient-to-r from-background to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
-            </motion.div>
-
-            {/* Ambient glow */}
-            <div className="pointer-events-none absolute inset-0 z-0">
-              <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-indigo-600/10 blur-[120px]" />
-            </div>
-
-            {/* Text content */}
-            <div className="relative z-10 w-[50%] px-16 min-h-screen flex flex-col justify-center">
+          {/* Text content */}
+          <div className="relative z-10 w-full px-6 lg:px-16 pt-8 lg:pt-24 pb-16 order-2 lg:order-none">
+            <div className="max-w-6xl mx-auto lg:max-w-none lg:pr-[55%]">
+              {/* Eyebrow */}
               <motion.div
-                className="flex items-center gap-3 mb-8"
+                className="flex items-center gap-3 mb-6 lg:mb-8"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -214,8 +119,9 @@ export default function Home() {
                 <span className="block w-2 h-2 rounded-full bg-indigo-500 dark:bg-indigo-400 animate-pulse" />
               </motion.div>
 
+              {/* Name */}
               <motion.h1
-                className="text-7xl xl:text-8xl font-light tracking-tight leading-none mb-6"
+                className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tight leading-none mb-6"
                 style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -228,8 +134,9 @@ export default function Home() {
                 ))}
               </motion.h1>
 
+              {/* Terminal role */}
               <motion.div
-                className="mb-10 h-8 flex items-center"
+                className="mb-8 lg:mb-10 h-8 flex items-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
@@ -237,32 +144,34 @@ export default function Home() {
                 <TerminalRole />
               </motion.div>
 
+              {/* Location + email */}
               <motion.div
-                className="flex flex-wrap gap-6 text-sm text-muted-foreground mb-12 font-mono"
+                className="flex flex-wrap gap-4 lg:gap-6 text-sm text-muted-foreground mb-10 lg:mb-12 font-mono"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
               >
                 <span className="flex items-center gap-2">
-                  <MapPin className="size-3.5" /> {developerInfo.location}
+                  <MapPin className="size-3.5 shrink-0" /> {developerInfo.location}
                 </span>
                 <span className="flex items-center gap-2">
-                  <Mail className="size-3.5" />
-                  <a href={`mailto:${developerInfo.email}`} className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">
+                  <Mail className="size-3.5 shrink-0" />
+                  <a href={`mailto:${developerInfo.email}`} className="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors break-all">
                     {developerInfo.email}
                   </a>
                 </span>
               </motion.div>
 
+              {/* CTAs */}
               <motion.div
-                className="flex flex-wrap gap-4"
+                className="flex flex-wrap gap-3 lg:gap-4"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9 }}
               >
                 <Link
                   to="/portfolio"
-                  className="group inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium tracking-wide rounded-sm transition-all duration-200"
+                  className="group inline-flex items-center gap-2 px-5 lg:px-6 py-2.5 lg:py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium tracking-wide rounded-sm transition-all duration-200"
                 >
                   View Projects
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -270,35 +179,35 @@ export default function Home() {
                 <a
                   href="/Rohith_Ram_H_Resume.pdf"
                   download
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:border-indigo-500/50 hover:bg-accent text-sm font-medium tracking-wide rounded-sm transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-5 lg:px-6 py-2.5 lg:py-3 border border-border hover:border-indigo-500/50 hover:bg-accent text-sm font-medium tracking-wide rounded-sm transition-all duration-200"
                 >
                   Download Resume
                   <ExternalLink className="size-4" />
                 </a>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:border-indigo-500/50 hover:bg-accent text-sm font-medium tracking-wide rounded-sm transition-all duration-200"
+                  className="inline-flex items-center gap-2 px-5 lg:px-6 py-2.5 lg:py-3 border border-border hover:border-indigo-500/50 hover:bg-accent text-sm font-medium tracking-wide rounded-sm transition-all duration-200"
                 >
                   Get in Touch
                 </Link>
               </motion.div>
             </div>
-
-            {/* Scroll hint */}
-            <motion.div
-              className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground z-10"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.4 }}
-            >
-              <span className="text-xs font-mono tracking-widest uppercase">Scroll</span>
-              <motion.div
-                className="w-px h-12 bg-gradient-to-b from-muted-foreground to-transparent"
-                animate={{ scaleY: [1, 0.5, 1] }}
-                transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-              />
-            </motion.div>
           </div>
+
+          {/* Scroll hint — desktop only */}
+          <motion.div
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-muted-foreground z-10 hidden lg:flex"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.4 }}
+          >
+            <span className="text-xs font-mono tracking-widest uppercase">Scroll</span>
+            <motion.div
+              className="w-px h-12 bg-gradient-to-b from-muted-foreground to-transparent"
+              animate={{ scaleY: [1, 0.5, 1] }}
+              transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+            />
+          </motion.div>
         </section>
 
         {/* ── About strip ── */}
@@ -332,6 +241,7 @@ export default function Home() {
                 Experience
               </p>
             </ScrollReveal>
+
             <div className="space-y-0">
               {developerInfo.experience.map((exp, i) => (
                 <ScrollReveal key={i} delay={i * 0.1}>
@@ -371,6 +281,7 @@ export default function Home() {
                 Skills & Technologies
               </p>
             </ScrollReveal>
+
             <div className="grid md:grid-cols-3 gap-6">
               {skillGroups.map((group, i) => (
                 <ScrollReveal key={group.label} delay={i * 0.1}>
@@ -408,6 +319,7 @@ export default function Home() {
                 </Link>
               </div>
             </ScrollReveal>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {featuredProjects.map((project, index) => (
                 <ProjectCard
